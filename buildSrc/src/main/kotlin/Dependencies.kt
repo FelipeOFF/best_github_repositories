@@ -1,7 +1,7 @@
 object Sdk {
     const val MIN_SDK_VERSION = 22
-    const val TARGET_SDK_VERSION = 30
-    const val COMPILE_VERSION = 31
+    const val TARGET_SDK_VERSION = 32
+    const val COMPILE_VERSION = 32
     const val PROJECT_BUILD_TOOL_BUILD_VERSION = "30.0.2"
     const val APP_VERSION_CODE = 1
     const val APP_VERSION_NAME = "0.0.1" // Se voce esta em HML ou DEV leia o README.md linha 200
@@ -12,7 +12,8 @@ object BuildPluginsVersion {
     const val AGP = "7.2.0"
     const val DETEKT = "1.21.0"
     const val KOTLIN = "1.7.10"
-    const val KTLINT = "10.3.0"
+    const val KTLINT_PLUGIN = "10.3.0"
+    const val KTLINT = "0.39.0"
     const val VERSIONS_PLUGIN = "0.29.0"
 }
 

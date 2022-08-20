@@ -6,7 +6,7 @@ plugins {
     kotlin("android") version BuildPluginsVersion.KOTLIN apply false
     kotlin("plugin.serialization") version BuildPluginsVersion.KOTLIN apply false
     id("io.gitlab.arturbosch.detekt") version BuildPluginsVersion.DETEKT
-    id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT
+    id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT_PLUGIN
     id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
 }
 
