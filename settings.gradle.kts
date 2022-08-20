@@ -13,4 +13,6 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "Best GitHub Repositories"
-include ':app'
+include(
+    ":app"
+)
