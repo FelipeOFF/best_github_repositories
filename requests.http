@@ -1,0 +1,10 @@
+
+### Get all repositories of Java with sort by stars
+
+GET https://api.github.com/search/repositories?q=language:Java&sort=stars&page=1
+Content-Type: application/json
+
+### Get Pull requests by repository
+
+GET https://api.github.com/repos/elastic/elasticsearch/pulls
+Content-Type: application/json

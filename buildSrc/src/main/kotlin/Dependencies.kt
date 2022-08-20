@@ -17,6 +17,7 @@ object BuildPluginsVersion {
 }
 
 object LibVersions {
+    const val KOTLIN_VERSION = "1.5.31"
     const val CORE_KTX_VERSION = "1.8.0"
     const val APP_COMPAT_VERSION = "1.5.0"
     const val MATERIAL_VERSION = "1.6.1"
@@ -27,6 +28,8 @@ object LibVersions {
 }
 
 object Dependencies {
+    const val KOTLIN = "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${LibVersions.KOTLIN_VERSION}"
+
     const val ANDROID_X_CORE = "androidx.core:core-ktx:${LibVersions.CORE_KTX_VERSION}"
     const val APPCOMPAT = "androidx.appcompat:appcompat:${LibVersions.APP_COMPAT_VERSION}"
     const val MATERIAL = "com.google.android.material:material:${LibVersions.MATERIAL_VERSION}"

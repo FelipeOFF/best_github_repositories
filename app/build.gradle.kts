@@ -49,6 +49,7 @@ android {
 
 dependencies {
 
+    implementation(Dependencies.KOTLIN)
     implementation(Dependencies.ANDROID_X_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
