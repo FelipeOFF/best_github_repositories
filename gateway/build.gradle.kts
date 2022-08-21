@@ -46,5 +46,8 @@ dependencies {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_GSON_CONVERTER)
 
+    implementation(project(":util"))
+    implementation(project(":model"))
+
     testImplementation(TestDependencies.JUNIT)
 }

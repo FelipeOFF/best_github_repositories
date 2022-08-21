@@ -15,5 +15,7 @@ dependencyResolutionManagement {
 rootProject.name = "Best GitHub Repositories"
 include(
     ":app",
-    ":gateway"
+    ":gateway",
+    ":util",
+    ":model",
 )

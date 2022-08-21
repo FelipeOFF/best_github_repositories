@@ -22,6 +22,14 @@ object LibVersions {
     const val APP_COMPAT_VERSION = "1.5.0"
     const val MATERIAL_VERSION = "1.6.1"
 
+    const val COROUTINES_VERSION = "1.3.9"
+    const val COROUTINES_ANDROID_VERSION = "1.3.9"
+
+    const val OK_HTTP_VERSION = "4.9.0"
+    const val RETROFIT_VERSION = "2.9.0"
+
+    const val GSON_VERSION = "2.9.1"
+
     const val JUNIT_VERSION = "4.13.2"
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
@@ -33,6 +41,19 @@ object Dependencies {
     const val ANDROID_X_CORE = "androidx.core:core-ktx:${LibVersions.CORE_KTX_VERSION}"
     const val APPCOMPAT = "androidx.appcompat:appcompat:${LibVersions.APP_COMPAT_VERSION}"
     const val MATERIAL = "com.google.android.material:material:${LibVersions.MATERIAL_VERSION}"
+
+    const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibVersions.COROUTINES_VERSION}"
+    const val COROUTINES_ANDROID =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibVersions.COROUTINES_ANDROID_VERSION}"
+
+    // HTTP
+
+    const val OKHTTP = "com.squareup.okhttp3:okhttp:${LibVersions.OK_HTTP_VERSION}"
+    const val OKHTTP_LOG_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${LibVersions.OK_HTTP_VERSION}"
+    const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibVersions.RETROFIT_VERSION}"
+    const val RETROFIT_GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:${LibVersions.RETROFIT_VERSION}"
+
+    const val GSON = "com.google.code.gson:gson:${LibVersions.GSON_VERSION}"
 }
 
 object TestDependencies {
