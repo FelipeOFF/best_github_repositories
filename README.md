@@ -1,6 +1,6 @@
 # Best GitHub Repositories App
 
-![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin)
+![Language](https://img.shields.io/github/languages/top/cortinico/kotlin-android-template?color=blue&logo=kotlin) <img src="https://img.shields.io/badge/instrumental%20test-100%25-green"> <img src="https://img.shields.io/badge/-Unit%20Tests-green">
 
 This app lets user know which repository is most popular of java language.
 
