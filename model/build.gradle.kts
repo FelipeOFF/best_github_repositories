@@ -39,11 +39,5 @@ android {
 
 dependencies {
     implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.OKHTTP)
-    implementation(Dependencies.OKHTTP_LOG_INTERCEPTOR)
-    implementation(Dependencies.RETROFIT)
-    implementation(Dependencies.RETROFIT_GSON_CONVERTER)
     implementation(Dependencies.GSON)
-
-    testImplementation(TestDependencies.JUNIT)
 }
