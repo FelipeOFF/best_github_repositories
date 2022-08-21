@@ -43,6 +43,23 @@ android {
         viewBinding = true
     }
 
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            isDebuggable = false
+            if (signingConfigs.names.contains("debug")) { // when creating a keystore add it here
+                signingConfig = signingConfigs.getByName("debug")
+            }
+        }
+
+        getByName("debug") {
+            isDebuggable = true
+            if (signingConfigs.names.contains("debug")) {
+                signingConfig = signingConfigs.getByName("debug")
+            }
+        }
+    }
+
     sourceSets.all {
         java.srcDir("src/$name/kotlin")
     }
