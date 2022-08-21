@@ -45,6 +45,9 @@ dependencies {
     implementation(project(":model"))
     implementation(project(":gateway"))
 
+    testImplementation(Dependencies.RETROFIT)
+    testImplementation(Dependencies.OKHTTP)
+
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)
 }
