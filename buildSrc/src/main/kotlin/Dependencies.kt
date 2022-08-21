@@ -34,6 +34,10 @@ object LibVersions {
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
     const val MOCKK_VERSION = "1.12.1"
+
+    const val HAWK_VERSION = "2.0.1"
+
+    const val TIMBER_VERSION = "5.0.1"
 }
 
 object Dependencies {
@@ -55,6 +59,12 @@ object Dependencies {
     const val RETROFIT_GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:${LibVersions.RETROFIT_VERSION}"
 
     const val GSON = "com.google.code.gson:gson:${LibVersions.GSON_VERSION}"
+
+    // Storage Manager
+    const val HAWK = "com.orhanobut:hawk:${LibVersions.HAWK_VERSION}"
+
+    // Other
+    const val TIMBER = "com.jakewharton.timber:timber:${LibVersions.TIMBER_VERSION}"
 }
 
 object TestDependencies {

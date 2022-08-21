@@ -20,4 +20,5 @@ include(
     ":gateway",
     ":util",
     ":model",
+    ":cache",
 )
