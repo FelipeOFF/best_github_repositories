@@ -63,6 +63,8 @@ dependencies {
     implementation(Dependencies.TIMBER)
     implementation(Dependencies.KOIN)
     implementation(Dependencies.KOIN_ANDROID)
+    implementation(Dependencies.LIFECYCLE)
+    implementation(Dependencies.LIFECYCLE_KTX)
 
     implementation(project(":di"))
 

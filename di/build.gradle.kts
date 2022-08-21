@@ -45,4 +45,6 @@ dependencies {
     implementation(project(":model"))
     implementation(project(":gateway"))
     implementation(project(":repository"))
+    implementation(project(":domain"))
+    implementation(project(":cache"))
 }

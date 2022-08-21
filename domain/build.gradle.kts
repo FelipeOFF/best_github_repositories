@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":repository"))
     implementation(project(":model"))
     implementation(project(":cache"))
+    implementation(project(":util"))
 
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)

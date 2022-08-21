@@ -1,10 +1,12 @@
 package com.example.domain.usecase
 
+import com.example.cache.store.HawkCacheStore
 import com.example.domain.ResultWrapper
 import com.example.domain.util.asErrorServerOrNull
 import com.example.domain.util.asSuccessValueOrNull
 import com.example.model.repository.res.GitHubRepositories
 import com.example.repository.GitHubRepository
+import com.example.util.Const.CacheKey.GET_ALL_REPOSITORIES_CACHING
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -23,7 +25,18 @@ class GetAllRepositoriesTest {
     fun `on execute UseCase GetAllRepositories giving page then return a list of repository`(): Unit = runBlocking {
         val listOfRepository: GitHubRepositories = mockk()
 
-        val useCase = GetAllRepositories(repository)
+        val useCase = GetAllRepositories(
+            repository,
+            cacheStrategy = mockk<HawkCacheStore<GitHubRepositories>> {
+                coEvery { this@mockk.get(GET_ALL_REPOSITORIES_CACHING) } returns listOfRepository
+                coEvery {
+                    this@mockk.save(
+                        GET_ALL_REPOSITORIES_CACHING,
+                        listOfRepository
+                    )
+                } returns Unit
+            }
+        )
 
         coEvery { repository.getAllRepositories(1) } returns listOfRepository
 
@@ -42,7 +55,12 @@ class GetAllRepositoriesTest {
         val code = 401
         val exception = HttpException(Response.error<GitHubRepositories>(code, value.toResponseBody()))
 
-        val useCase = GetAllRepositories(repository)
+        val useCase = GetAllRepositories(
+            repository,
+            cacheStrategy = mockk<HawkCacheStore<GitHubRepositories>> {
+                coEvery { this@mockk.get(GET_ALL_REPOSITORIES_CACHING) } returns null
+            }
+        )
 
         coEvery { repository.getAllRepositories(1) } throws exception
 

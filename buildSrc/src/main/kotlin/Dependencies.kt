@@ -21,6 +21,7 @@ object LibVersions {
     const val CORE_KTX_VERSION = "1.8.0"
     const val APP_COMPAT_VERSION = "1.5.0"
     const val MATERIAL_VERSION = "1.6.1"
+    const val LIFECYCLE_VERSION = "2.5.1"
 
     const val COROUTINES_VERSION = "1.3.9"
     const val COROUTINES_ANDROID_VERSION = "1.3.9"
@@ -52,6 +53,8 @@ object Dependencies {
     const val COROUTINES = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${LibVersions.COROUTINES_VERSION}"
     const val COROUTINES_ANDROID =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibVersions.COROUTINES_ANDROID_VERSION}"
+    const val LIFECYCLE = "androidx.lifecycle:lifecycle-viewmodel:${LibVersions.LIFECYCLE_VERSION}"
+    const val LIFECYCLE_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${LibVersions.LIFECYCLE_VERSION}"
 
     // HTTP
 

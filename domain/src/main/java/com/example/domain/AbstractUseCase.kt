@@ -10,10 +10,12 @@ import java.net.UnknownHostException
 
 abstract class AbstractUseCase<in PARAMETER, out RESULT> constructor(
     private val cache: Cache<RESULT>? = null,
-    private val key: String? = null
+    private val key: String? = null,
 ) {
 
     protected abstract suspend fun execute(param: PARAMETER): RESULT
+
+    private var lastedPARAMETER: PARAMETER? = null
 
     // I put this suppresses because it is error handle layer, then we need catch any error here
     @Suppress("TooGenericExceptionCaught")
@@ -24,10 +26,11 @@ abstract class AbstractUseCase<in PARAMETER, out RESULT> constructor(
         emit(ResultWrapper.Loading)
         try {
             val result = withContext(IO) {
-                cache?.get(key, forceLoad) {
+                cache?.get(key, (forceLoad ?: false) || (lastedPARAMETER == null && value != lastedPARAMETER)) {
                     execute(value)
                 } ?: execute(value)
             }
+            lastedPARAMETER = value
             emit(ResultWrapper.Success(result))
         } catch (e: UnknownHostException) {
             emit(ResultWrapper.Error(ErrorWrapper.NetworkException(cause = e)))

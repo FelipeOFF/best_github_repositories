@@ -37,5 +37,4 @@ This project is also using [**detekt**](https://github.com/detekt/detekt) to ana
 This project is using [**GitHub Actions**](https://github.com/FelipeOFF/best_github_repositories/actions) as CI.
 
 There are currently the following workflows available:
-- [Validate Gradle Wrapper](.github/workflows/gradle-wrapper-validation.yml) - Will check that the gradle wrapper has a valid checksum
 - [Pre Merge Checks](.github/workflows/pre-merge.yaml) - Will run the `build`, `check` tasks. 

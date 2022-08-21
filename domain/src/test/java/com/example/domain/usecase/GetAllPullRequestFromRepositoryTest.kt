@@ -1,11 +1,13 @@
 package com.example.domain.usecase
 
+import com.example.cache.store.HawkCacheStore
 import com.example.domain.ResultWrapper
 import com.example.domain.util.asErrorServerOrNull
 import com.example.domain.util.asSuccessValueOrNull
 import com.example.model.pull.request.req.GetPullRequestReq
 import com.example.model.pull.request.res.PullRequest
 import com.example.repository.GitHubRepository
+import com.example.util.Const
 import io.mockk.coEvery
 import io.mockk.mockk
 import junit.framework.TestCase.assertEquals
@@ -28,7 +30,18 @@ class GetAllPullRequestFromRepositoryTest {
 
             val listOfPullRequests: List<PullRequest> = listOf(mockk())
 
-            val useCase = GetAllPullRequestFromRepository(repository)
+            val useCase = GetAllPullRequestFromRepository(
+                repository,
+                cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns listOfPullRequests
+                    coEvery {
+                        this@mockk.save(
+                            Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING,
+                            listOfPullRequests
+                        )
+                    } returns Unit
+                }
+            )
 
             coEvery { repository.getAllPullRequestFromRepository(client, repositoryName) } returns listOfPullRequests
 
@@ -51,7 +64,12 @@ class GetAllPullRequestFromRepositoryTest {
             val code = 401
             val exception = HttpException(Response.error<List<PullRequest>>(code, value.toResponseBody()))
 
-            val useCase = GetAllPullRequestFromRepository(repository)
+            val useCase = GetAllPullRequestFromRepository(
+                repository,
+                cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null
+                }
+            )
 
             coEvery { repository.getAllPullRequestFromRepository(client, repositoryName) } throws exception
 
