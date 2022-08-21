@@ -33,6 +33,7 @@ object LibVersions {
     const val JUNIT_VERSION = "4.13.2"
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
+    const val MOCKK_VERSION = "1.12.1"
 }
 
 object Dependencies {
@@ -58,6 +59,8 @@ object Dependencies {
 
 object TestDependencies {
     const val JUNIT = "junit:junit:${LibVersions.JUNIT_VERSION}"
+
+    const val MOCKK = "io.mockk:mockk:${LibVersions.MOCKK_VERSION}"
 
     const val JUNIT_ANDROID_X = "androidx.test.ext:junit:${LibVersions.ANDROIDX_JUNIT_VERSION}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${LibVersions.ESPRESSO_CORE_VERSION}"

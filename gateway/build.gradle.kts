@@ -50,4 +50,5 @@ dependencies {
     implementation(project(":model"))
 
     testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.MOCKK)
 }
