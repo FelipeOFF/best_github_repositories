@@ -30,6 +30,8 @@ object LibVersions {
 
     const val GSON_VERSION = "2.9.1"
 
+    const val KOIN_VERSION = "3.2.0"
+
     const val JUNIT_VERSION = "4.13.2"
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
@@ -58,7 +60,13 @@ object Dependencies {
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibVersions.RETROFIT_VERSION}"
     const val RETROFIT_GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:${LibVersions.RETROFIT_VERSION}"
 
+    // Serialization and Deserialization of JSON
+
     const val GSON = "com.google.code.gson:gson:${LibVersions.GSON_VERSION}"
+
+    // Dependency Injection
+    const val KOIN = "io.insert-koin:koin-core:${LibVersions.KOIN_VERSION}"
+    const val KOIN_ANDROID = "io.insert-koin:koin-android:${LibVersions.KOIN_VERSION}"
 
     // Storage Manager
     const val HAWK = "com.orhanobut:hawk:${LibVersions.HAWK_VERSION}"
@@ -74,4 +82,6 @@ object TestDependencies {
 
     const val JUNIT_ANDROID_X = "androidx.test.ext:junit:${LibVersions.ANDROIDX_JUNIT_VERSION}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${LibVersions.ESPRESSO_CORE_VERSION}"
+
+    const val KOIN = "io.insert-koin:koin-test:${LibVersions.KOIN_VERSION}"
 }

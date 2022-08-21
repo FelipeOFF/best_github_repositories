@@ -24,4 +24,5 @@ include(
     ":model",
     ":cache",
     ":repository",
+    ":di",
 )

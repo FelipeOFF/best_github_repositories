@@ -56,15 +56,19 @@ android {
 }
 
 dependencies {
-
     implementation(Dependencies.KOTLIN)
     implementation(Dependencies.ANDROID_X_CORE)
     implementation(Dependencies.APPCOMPAT)
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.TIMBER)
+    implementation(Dependencies.KOIN)
+    implementation(Dependencies.KOIN_ANDROID)
+
+    implementation(project(":di"))
 
     testImplementation(TestDependencies.JUNIT)
 
     androidTestImplementation(TestDependencies.JUNIT_ANDROID_X)
     androidTestImplementation(TestDependencies.ESPRESSO_CORE)
+    androidTestImplementation(TestDependencies.KOIN)
 }
