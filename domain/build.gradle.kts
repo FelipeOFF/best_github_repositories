@@ -39,10 +39,13 @@ android {
 
 dependencies {
     implementation(Dependencies.KOTLIN)
-    implementation(Dependencies.KOIN)
-    implementation(Dependencies.KOIN_ANDROID)
+    implementation(Dependencies.OKHTTP)
+    implementation(Dependencies.RETROFIT)
 
-    implementation(project(":model"))
-    implementation(project(":gateway"))
     implementation(project(":repository"))
+    implementation(project(":model"))
+    implementation(project(":cache"))
+
+    testImplementation(TestDependencies.JUNIT)
+    testImplementation(TestDependencies.MOCKK)
 }
