@@ -1,6 +1,5 @@
 package com.example.model.pull.request.res
 
-
 import com.google.gson.annotations.SerializedName
 
 data class Repo(
@@ -117,7 +116,7 @@ data class Repo(
     @SerializedName("owner")
     val owner: Owner?,
     @SerializedName("private")
-    val `private`: Boolean?,
+    val isPrivateRepository: Boolean?,
     @SerializedName("pulls_url")
     val pullsUrl: String?,
     @SerializedName("pushed_at")

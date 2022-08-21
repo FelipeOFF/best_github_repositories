@@ -1,6 +1,5 @@
 package com.example.model.repository.res
 
-
 import com.google.gson.annotations.SerializedName
 
 data class GitHubRepositories(

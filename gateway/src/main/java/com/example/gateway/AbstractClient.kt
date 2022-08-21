@@ -25,13 +25,12 @@ abstract class AbstractClient {
     }
 
     private fun makeOkHttpClient(
-        customConfigBuilderOkHttp: OkHttpClientBuilder = { this }
-    ): OkHttpClient =
-        getHttpClientBuilder()
-            .customConfigBuilderOkHttp()
-            .makeShowHttpLogging()
-            .setTimeout()
-            .build()
+        customConfigBuilderOkHttp: OkHttpClientBuilder = { this },
+    ): OkHttpClient = getHttpClientBuilder()
+        .customConfigBuilderOkHttp()
+        .makeShowHttpLogging()
+        .setTimeout()
+        .build()
 
     protected open fun getHttpClientBuilder(): OkHttpClient.Builder =
         OkHttpClient.Builder()

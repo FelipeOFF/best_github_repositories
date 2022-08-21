@@ -1,6 +1,5 @@
 package com.example.model.repository.res
 
-
 import com.google.gson.annotations.SerializedName
 
 data class Repository(
@@ -117,7 +116,7 @@ data class Repository(
     @SerializedName("owner")
     val owner: Owner?,
     @SerializedName("private")
-    val `private`: Boolean?,
+    val isAPrivateRepository: Boolean?,
     @SerializedName("pulls_url")
     val pullsUrl: String?,
     @SerializedName("pushed_at")

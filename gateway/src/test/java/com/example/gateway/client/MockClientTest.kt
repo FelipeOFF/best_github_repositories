@@ -29,5 +29,4 @@ class MockClientTest {
         // Verify
         verify(exactly = 1) { mockClient.service }
     }
-
 }

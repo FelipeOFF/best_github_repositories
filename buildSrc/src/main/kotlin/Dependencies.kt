@@ -9,7 +9,7 @@ object Sdk {
 
 object BuildPluginsVersion {
     const val AGP = "7.2.2"
-    const val DETEKT = "1.21.0"
+    const val DETEKT = "1.14.1"
     const val KOTLIN = "1.7.10"
     const val KTLINT_PLUGIN = "10.3.0"
     const val KTLINT = "0.39.0"

@@ -29,5 +29,4 @@ class GitHubClientTest {
         // Verify
         verify { gitHubClient.service }
     }
-
 }
