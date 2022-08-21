@@ -14,11 +14,14 @@ dependencyResolutionManagement {
         jcenter()
     }
 }
+
 rootProject.name = "Best GitHub Repositories"
+
 include(
     ":app",
     ":gateway",
     ":util",
     ":model",
     ":cache",
+    ":repository",
 )
