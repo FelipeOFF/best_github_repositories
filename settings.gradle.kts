@@ -26,4 +26,5 @@ include(
     ":repository",
     ":di",
     ":domain",
+    ":common",
 )
