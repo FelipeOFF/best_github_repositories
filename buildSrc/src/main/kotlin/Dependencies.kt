@@ -29,6 +29,8 @@ object LibVersions {
     const val OK_HTTP_VERSION = "4.9.0"
     const val RETROFIT_VERSION = "2.9.0"
 
+    const val GLIDE_VERSION = "4.13.2"
+
     const val GSON_VERSION = "2.9.1"
 
     const val KOIN_VERSION = "3.2.0"
@@ -62,6 +64,11 @@ object Dependencies {
     const val OKHTTP_LOG_INTERCEPTOR = "com.squareup.okhttp3:logging-interceptor:${LibVersions.OK_HTTP_VERSION}"
     const val RETROFIT = "com.squareup.retrofit2:retrofit:${LibVersions.RETROFIT_VERSION}"
     const val RETROFIT_GSON_CONVERTER = "com.squareup.retrofit2:converter-gson:${LibVersions.RETROFIT_VERSION}"
+
+    // Image Loader
+
+    const val GLIDE = "com.github.bumptech.glide:glide:${LibVersions.GLIDE_VERSION}"
+    const val GLIDE_COMPILER = "com.github.bumptech.glide:compiler:${LibVersions.GLIDE_VERSION}"
 
     // Serialization and Deserialization of JSON
 

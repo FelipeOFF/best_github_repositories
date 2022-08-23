@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     kotlin("android")
+    kotlin("kapt")
 }
 
 android {
@@ -39,6 +40,17 @@ android {
 
 dependencies {
     implementation(Dependencies.KOTLIN)
+    implementation(Dependencies.ANDROID_X_CORE)
+    implementation(Dependencies.APPCOMPAT)
+    implementation(Dependencies.KOIN)
+    implementation(Dependencies.KOIN_ANDROID)
+    implementation(Dependencies.MATERIAL)
+    implementation(Dependencies.LIFECYCLE)
+    implementation(Dependencies.LIFECYCLE_KTX)
+
+    implementation(Dependencies.GLIDE)
+
+    kapt(Dependencies.GLIDE_COMPILER)
 
     implementation(project(":domain"))
     implementation(project(":model"))
