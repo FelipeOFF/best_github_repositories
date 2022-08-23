@@ -27,5 +27,5 @@ include(
     ":di",
     ":domain",
     ":common",
-    ":home",
+    ":features:home",
 )

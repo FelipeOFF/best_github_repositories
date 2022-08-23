@@ -49,6 +49,8 @@ dependencies {
     implementation(Dependencies.LIFECYCLE_KTX)
 
     implementation(project(":app"))
+    implementation(project(":domain"))
+    implementation(project(":common"))
 
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)

@@ -53,7 +53,7 @@ android {
     sourceSets.all {
         java.srcDir("src/$name/kotlin")
     }
-    dynamicFeatures += setOf(":home")
+    dynamicFeatures += setOf(":features:home")
 }
 
 dependencies {
