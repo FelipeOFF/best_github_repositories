@@ -68,6 +68,7 @@ dependencies {
     implementation(Dependencies.LIFECYCLE_KTX)
 
     implementation(project(":di"))
+    implementation(project(":common"))
 
     testImplementation(TestDependencies.JUNIT)
 
