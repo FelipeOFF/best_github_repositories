@@ -3,6 +3,7 @@ package com.example.home.activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.activity.BaseActivity
+import com.example.common.helper.setItems
 import com.example.home.BR
 import com.example.home.R
 import com.example.home.adapter.RepositoryAdapter
@@ -41,6 +42,7 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
     private fun setupView() {
         binding?.recycler?.adapter = adapter
         binding?.recycler?.layoutManager = LinearLayoutManager(this)
+        binding?.recycler?.setItems(viewModel.listOfRepositories.value)
     }
 
     private fun adapterListener(repository: Repository) {
