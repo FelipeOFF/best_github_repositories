@@ -10,7 +10,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 import org.koin.core.module.Module
 
 class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.home_activity) {
-    override val bindingVariable: Int?
+    override val bindingVariable: Int
         get() = BR.homeViewModel
 
     override val viewModel: HomeViewModel by viewModel()

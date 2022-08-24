@@ -1,6 +1,7 @@
 package com.example.common.activity
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
@@ -27,6 +28,11 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel>(
 
     val binding: VB? by lazy {
         setupBinding()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding // only for load layout
     }
 
     private fun setupBinding(): VB? {

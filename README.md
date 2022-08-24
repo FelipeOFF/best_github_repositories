@@ -38,3 +38,15 @@ This project is using [**GitHub Actions**](https://github.com/FelipeOFF/best_git
 
 There are currently the following workflows available:
 - [Pre Merge Checks](.github/workflows/pre-merge.yaml) - Will run the `build`, `check` tasks. 
+
+------------------------------------------------------------------------------------------------------------------------
+
+## Sobre você
+**Nome**: Felipe Oliveira Ferreira
+
+**Sede(s) que gostaria de trabalhar (BH, Curitiba, Recife, SP)**: SP
+
+**Gostaria de receber feedback sobre seu desafio? (sim/não)**: Sim
+
+## Alguma consideração sobre o seu projeto?
+Foi bem legal o desafio 👍
