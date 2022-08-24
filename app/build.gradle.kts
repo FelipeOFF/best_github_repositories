@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     kotlin("android")
     kotlin("plugin.serialization")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -66,6 +67,7 @@ dependencies {
     implementation(Dependencies.KOIN_ANDROID)
     implementation(Dependencies.LIFECYCLE)
     implementation(Dependencies.LIFECYCLE_KTX)
+    implementation(Dependencies.HAWK)
 
     implementation(project(":di"))
     implementation(project(":common"))

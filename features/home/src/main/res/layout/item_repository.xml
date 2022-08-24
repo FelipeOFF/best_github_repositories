@@ -1,115 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:padding="16dp"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/repositoryName"
-        android:layout_width="0dp"
+    <data>
+
+        <variable
+            name="repository"
+            type="com.example.model.repository.res.Repository"/>
+
+        <variable
+            name="repositoryViewHolder"
+            type="com.example.home.adapter.RepositoryItemViewHolder"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        tools:text="Nome Repositório"
-        style="@style/ItemTitleListTile"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintRight_toLeftOf="@id/txtUserFullName"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
+        android:background="@drawable/bg_simple_ripple"
+        android:onClick="@{() -> repositoryViewHolder.onClickItem(repository)}"
+        android:padding="16dp" >
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/repositoryDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        style="@style/ItemSubtitleListTile"
-        tools:text="Descrição do repositório Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate quam at nisi porta, in luctus sapien scelerisque. Sed non nibh at sapien"
-        app:layout_constraintRight_toRightOf="@id/repositoryName"
-        app:layout_constraintTop_toBottomOf="@id/repositoryName"
-        app:layout_constraintLeft_toLeftOf="@id/repositoryName"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repositoryName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="Nome Repositório"
+            style="@style/ItemTitleListTile"
+            android:text="@{repository.name}"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintRight_toLeftOf="@id/txtUserFullName"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgIconBranchs"
-        android:layout_width="20dp"
-        android:layout_height="20dp"
-        android:tint="@color/colorDetail"
-        android:layout_marginTop="16dp"
-        app:srcCompat="@drawable/ic_branch_icon_color_e2a331"
-        app:layout_constraintHorizontal_bias="0"
-        app:layout_constraintVertical_bias="0"
-        app:layout_constraintHorizontal_chainStyle="packed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toLeftOf="@id/countBranch"
-        app:layout_constraintLeft_toLeftOf="@id/repositoryName"
-        app:layout_constraintTop_toBottomOf="@id/repositoryDescription"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/repositoryDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/ItemSubtitleListTile"
+            android:text="@{repository.description}"
+            tools:text="Descrição do repositório Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate quam at nisi porta, in luctus sapien scelerisque. Sed non nibh at sapien"
+            app:layout_constraintRight_toRightOf="@id/repositoryName"
+            app:layout_constraintTop_toBottomOf="@id/repositoryName"
+            app:layout_constraintLeft_toLeftOf="@id/repositoryName"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/countBranch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/ItemIconTextListTile"
-        tools:text="640"
-        android:layout_marginEnd="6dp"
-        app:layout_constraintTop_toTopOf="@id/imgIconBranchs"
-        app:layout_constraintLeft_toRightOf="@id/imgIconBranchs"
-        app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
-        app:layout_constraintRight_toLeftOf="@id/imgIconStars"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgIconBranchs"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:tint="@color/colorDetail"
+            android:layout_marginTop="16dp"
+            app:srcCompat="@drawable/ic_branch_icon_color_e2a331"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/countBranch"
+            app:layout_constraintLeft_toLeftOf="@id/repositoryName"
+            app:layout_constraintTop_toBottomOf="@id/repositoryDescription"/>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgIconStars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:tint="@color/colorDetail"
-        android:layout_marginStart="6dp"
-        app:srcCompat="@drawable/baseline_star_20"
-        app:layout_constraintRight_toLeftOf="@id/countStars"
-        app:layout_constraintLeft_toRightOf="@id/countBranch"
-        app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
-        app:layout_constraintTop_toTopOf="@id/imgIconBranchs"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countBranch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ItemIconTextListTile"
+            tools:text="640"
+            android:text="@{repository.forks}"
+            android:layout_marginEnd="6dp"
+            app:layout_constraintTop_toTopOf="@id/imgIconBranchs"
+            app:layout_constraintLeft_toRightOf="@id/imgIconBranchs"
+            app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
+            app:layout_constraintRight_toLeftOf="@id/imgIconStars"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/countStars"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        style="@style/ItemIconTextListTile"
-        tools:text="98"
-        app:layout_constraintRight_toRightOf="@id/repositoryDescription"
-        app:layout_constraintTop_toTopOf="@id/imgIconBranchs"
-        app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
-        app:layout_constraintLeft_toRightOf="@id/imgIconStars"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgIconStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:tint="@color/colorDetail"
+            android:layout_marginStart="6dp"
+            app:srcCompat="@drawable/baseline_star_20"
+            app:layout_constraintRight_toLeftOf="@id/countStars"
+            app:layout_constraintLeft_toRightOf="@id/countBranch"
+            app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
+            app:layout_constraintTop_toTopOf="@id/imgIconBranchs"/>
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgProfilePhoto"
-        android:layout_width="42dp"
-        android:layout_height="42dp"
-        tools:src="@drawable/ic_round_account_circle"
-        app:layout_constraintVertical_chainStyle="packed"
-        app:layout_constraintBottom_toTopOf="@id/txtNickOfAuthor"
-        app:layout_constraintRight_toRightOf="@id/txtUserFullName"
-        app:layout_constraintLeft_toLeftOf="@id/txtUserFullName"
-        app:layout_constraintTop_toTopOf="@id/repositoryName"/>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/countStars"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ItemIconTextListTile"
+            tools:text="98"
+            android:text="@{repository.forksCount}"
+            app:layout_constraintRight_toRightOf="@id/repositoryDescription"
+            app:layout_constraintTop_toTopOf="@id/imgIconBranchs"
+            app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
+            app:layout_constraintLeft_toRightOf="@id/imgIconStars"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtNickOfAuthor"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        tools:text="username"
-        style="@style/ItemUserNickListTile"
-        app:layout_constraintBottom_toTopOf="@id/txtUserFullName"
-        app:layout_constraintTop_toBottomOf="@id/imgProfilePhoto"
-        app:layout_constraintLeft_toLeftOf="@id/txtUserFullName"
-        app:layout_constraintRight_toRightOf="@id/txtUserFullName"/>
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgProfilePhoto"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            app:urlload="@{repository.owner.avatarUrl}"
+            app:imageErrorResource="@{@drawable/ic_round_account_circle_home}"
+            app:progressBar="@{progressBar}"
+            tools:src="@drawable/ic_round_account_circle_home"
+            app:layout_constraintVertical_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/txtNickOfAuthor"
+            app:layout_constraintRight_toRightOf="@id/txtUserFullName"
+            app:layout_constraintLeft_toLeftOf="@id/txtUserFullName"
+            app:layout_constraintTop_toTopOf="@id/repositoryName"/>
 
-    <com.google.android.material.textview.MaterialTextView
-        android:id="@+id/txtUserFullName"
-        android:layout_width="125dp"
-        android:layout_height="wrap_content"
-        style="@style/ItemFullUserNameListTile"
-        tools:text="Nome Sobrenome"
-        app:layout_constraintLeft_toRightOf="@id/repositoryName"
-        app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txtNickOfAuthor"/>
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintTop_toTopOf="@id/imgProfilePhoto"
+            app:layout_constraintLeft_toLeftOf="@id/imgProfilePhoto"
+            app:layout_constraintRight_toRightOf="@id/imgProfilePhoto"
+            app:layout_constraintBottom_toBottomOf="@id/imgProfilePhoto"/>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNickOfAuthor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            tools:text="username"
+            android:text="@{repository.owner.login}"
+            style="@style/ItemUserNickListTile"
+            app:layout_constraintBottom_toTopOf="@id/txtUserFullName"
+            app:layout_constraintTop_toBottomOf="@id/imgProfilePhoto"
+            app:layout_constraintLeft_toLeftOf="@id/txtUserFullName"
+            app:layout_constraintRight_toRightOf="@id/txtUserFullName"/>
+
+        <!-- TODO fazer get do nome no tipo repository.owner.url -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtUserFullName"
+            android:layout_width="125dp"
+            android:layout_height="wrap_content"
+            style="@style/ItemFullUserNameListTile"
+            tools:text="Nome Sobrenome"
+            android:text="@{repository.owner.login}"
+            app:layout_constraintLeft_toRightOf="@id/repositoryName"
+            app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txtNickOfAuthor"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

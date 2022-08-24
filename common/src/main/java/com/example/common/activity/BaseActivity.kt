@@ -5,7 +5,7 @@ import androidx.annotation.LayoutRes
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.example.common.viewmodel.BaseViewModel
+import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -13,7 +13,7 @@ import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import kotlin.coroutines.CoroutineContext
 
-abstract class BaseActivity<VB : ViewDataBinding, VM : BaseViewModel>(
+abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel>(
     @LayoutRes val layout: Int
 ) : AppCompatActivity(), CoroutineScope {
 

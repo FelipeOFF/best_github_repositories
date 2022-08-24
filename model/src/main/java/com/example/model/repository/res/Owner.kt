@@ -1,7 +1,10 @@
 package com.example.model.repository.res
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Owner(
     @SerializedName("avatar_url")
     val avatarUrl: String?,
@@ -39,4 +42,4 @@ data class Owner(
     val type: String?,
     @SerializedName("url")
     val url: String?
-)
+) : Parcelable

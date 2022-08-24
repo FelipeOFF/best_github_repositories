@@ -1,7 +1,10 @@
 package com.example.model.repository.res
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class Repository(
     @SerializedName("allow_forking")
     val allowForking: Boolean?,
@@ -95,14 +98,10 @@ data class Repository(
     val language: String?,
     @SerializedName("languages_url")
     val languagesUrl: String?,
-    @SerializedName("license")
-    val license: Any?,
     @SerializedName("merges_url")
     val mergesUrl: String?,
     @SerializedName("milestones_url")
     val milestonesUrl: String?,
-    @SerializedName("mirror_url")
-    val mirrorUrl: Any?,
     @SerializedName("name")
     val name: String?,
     @SerializedName("node_id")
@@ -161,4 +160,4 @@ data class Repository(
     val watchersCount: Int?,
     @SerializedName("web_commit_signoff_required")
     val webCommitSignoffRequired: Boolean?
-)
+) : Parcelable

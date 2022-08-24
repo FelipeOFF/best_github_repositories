@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="home_toolbar_title">Github JavaPop</string>
+
+    <string name="error">Ocorreu um erro. Tente novamente.</string>
+    <string name="error_connection">Ops… Parece que você esta sem conexão</string>
+    <string name="try_again">Tentar novamente</string>
 </resources>

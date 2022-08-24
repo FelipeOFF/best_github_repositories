@@ -5,3 +5,4 @@ import retrofit2.Retrofit
 
 typealias OkHttpClientBuilder = OkHttpClient.Builder.() -> OkHttpClient.Builder
 typealias RetrofitBuilder = Retrofit.Builder.() -> Retrofit.Builder
+typealias ViewTypesListener<T> = (T) -> Unit

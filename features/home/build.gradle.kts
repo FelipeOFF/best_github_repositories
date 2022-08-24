@@ -2,6 +2,7 @@ plugins {
     id("com.android.dynamic-feature")
     kotlin("android")
     kotlin("kapt")
+    id("kotlin-parcelize")
 }
 
 android {
@@ -47,10 +48,13 @@ dependencies {
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.LIFECYCLE)
     implementation(Dependencies.LIFECYCLE_KTX)
+    implementation(Dependencies.TIMBER)
 
     implementation(project(":app"))
     implementation(project(":domain"))
     implementation(project(":common"))
+    implementation(project(":model"))
+    implementation(project(":util"))
 
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)

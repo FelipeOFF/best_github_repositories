@@ -3,6 +3,7 @@ package com.example.bestgithubrepositories
 import android.app.Application
 import com.example.bestgithubrepositories.tree.ProdTree
 import com.example.di.gitHubModules
+import com.orhanobut.hawk.Hawk
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidFileProperties
 import org.koin.core.KoinApplication
@@ -22,6 +23,8 @@ open class BestGithubRepositoriesApplication : Application() {
         } else {
             Timber.plant(ProdTree())
         }
+
+        Hawk.init(applicationContext).build()
 
         koinApplication
     }

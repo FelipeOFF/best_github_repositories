@@ -6,6 +6,7 @@ plugins {
     id("com.android.library") version BuildPluginsVersion.AGP apply false
     kotlin("android") version BuildPluginsVersion.KOTLIN apply false
     kotlin("plugin.serialization") version BuildPluginsVersion.KOTLIN apply false
+    id("org.jetbrains.kotlin.plugin.parcelize") version BuildPluginsVersion.KOTLIN apply false
     id("org.jlleitschuh.gradle.ktlint") version BuildPluginsVersion.KTLINT_PLUGIN
     id("com.github.ben-manes.versions") version BuildPluginsVersion.VERSIONS_PLUGIN
     id("com.android.dynamic-feature") version BuildPluginsVersion.AGP apply false
