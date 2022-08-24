@@ -4,12 +4,12 @@ import androidx.recyclerview.widget.DiffUtil
 import com.example.model.repository.res.Repository
 
 class RepositoryListDiffCallback(
-    private val oldList: List<Repository>,
-    private val newList: List<Repository>
+    private val oldList: List<RepositoryItemTypeAdapter>,
+    private val newList: List<RepositoryItemTypeAdapter>
 ) : DiffUtil.Callback() {
 
     override fun areItemsTheSame(oldItemPosition: Int, newItemPosition: Int): Boolean {
-        return oldList[oldItemPosition].id == newList[newItemPosition].id
+        return oldList[oldItemPosition] == newList[newItemPosition]
     }
 
     override fun getOldListSize(): Int {

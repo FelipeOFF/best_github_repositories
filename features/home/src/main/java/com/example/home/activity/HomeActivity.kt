@@ -7,6 +7,7 @@ import com.example.common.helper.setItems
 import com.example.home.BR
 import com.example.home.R
 import com.example.home.adapter.RepositoryAdapter
+import com.example.home.adapter.RepositoryItemTypeAdapter
 import com.example.home.databinding.HomeActivityBinding
 import com.example.home.di.homeModule
 import com.example.home.viewmodel.HomeViewModel
@@ -45,7 +46,7 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
         binding?.recycler?.setItems(viewModel.listOfRepositories.value)
     }
 
-    private fun adapterListener(repository: Repository) {
+    private fun adapterListener(repository: RepositoryItemTypeAdapter) {
         Timber.d(repository.toString()) // TODO tratar click
     }
 }

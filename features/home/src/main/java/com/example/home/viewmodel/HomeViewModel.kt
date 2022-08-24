@@ -7,8 +7,10 @@ import com.example.domain.ResultWrapper
 import com.example.domain.usecase.GetAllRepositories
 import com.example.domain.util.asSuccessValueOrNull
 import com.example.home.R
+import com.example.home.adapter.LoadingItemType
+import com.example.home.adapter.RepositoryItemType
+import com.example.home.adapter.RepositoryItemTypeAdapter
 import com.example.model.repository.res.GitHubRepositories
-import com.example.model.repository.res.Repository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
@@ -27,8 +29,13 @@ class HomeViewModel constructor(
     private val _result: MutableStateFlow<ResultWrapper<GitHubRepositories>> =
         MutableStateFlow(ResultWrapper.DismissLoading)
 
-    val listOfRepositories: StateFlow<List<Repository>> = _result.mapNotNull { result ->
+    val listOfRepositories: StateFlow<List<RepositoryItemTypeAdapter>> = _result.mapNotNull { result ->
         result.asSuccessValueOrNull()?.items
+    }.map { list ->
+        mutableListOf(
+            *list.map { RepositoryItemType(it) }.toTypedArray(),
+            LoadingItemType
+        )
     }.stateIn(viewModelScope, SharingStarted.Lazily, emptyList())
 
     val showLoading: StateFlow<Boolean> = _result.map { listOfRepositories ->
@@ -59,6 +66,7 @@ class HomeViewModel constructor(
                     is ErrorWrapper.UnknownException -> R.string.error
                 }
             }
+
             else -> showError.value
         }
 
