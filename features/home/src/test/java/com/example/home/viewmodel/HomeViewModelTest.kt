@@ -49,7 +49,6 @@ class HomeViewModelTest {
 
         homeViewModel.pageSourceRepository.load(PagingSource.LoadParams.Refresh(1, 30, false))
 
-
         val list = mutableListOf<List<Repository>>()
         val collectJob = launch(UnconfinedTestDispatcher()) {
             homeViewModel.listOfRepositories.toList(list)

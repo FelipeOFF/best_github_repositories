@@ -43,7 +43,6 @@ class PullRequestViewModel constructor(
     }
 
     fun searchRepositoryInformation(repository: Repository) {
-
     }
 
     private fun showErrorByResultWrapper(result: ResultWrapper<List<PullRequest>>?): Int? =

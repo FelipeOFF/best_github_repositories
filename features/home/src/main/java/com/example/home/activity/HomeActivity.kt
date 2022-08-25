@@ -15,7 +15,6 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.core.module.Module
-import timber.log.Timber
 
 class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.home_activity) {
 
@@ -65,8 +64,11 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
     }
 
     private fun adapterListener(repository: Repository) {
-        navigation.navigateToPullRequestActivity(this, Bundle().apply {
-            putParcelable(Const.ActivityParameters.REPOSITORY_PARAMETER, repository)
-        })
+        navigation.navigateToPullRequestActivity(
+            this,
+            Bundle().apply {
+                putParcelable(Const.ActivityParameters.REPOSITORY_PARAMETER, repository)
+            }
+        )
     }
 }

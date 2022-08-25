@@ -10,10 +10,10 @@ import com.example.common.navigation.Navigation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
+import org.koin.android.ext.android.inject
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import kotlin.coroutines.CoroutineContext
-import org.koin.android.ext.android.inject
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel>(
     @LayoutRes val layout: Int

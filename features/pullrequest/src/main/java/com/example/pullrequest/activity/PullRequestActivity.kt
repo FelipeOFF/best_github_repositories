@@ -34,8 +34,8 @@ class PullRequestActivity : BaseActivity<PullRequestActivityBinding, PullRequest
         viewModel.searchRepositoryInformation(repository)
 
         lifecycleScope.launch {
-            viewModel.onItemClicked.collectLatest {view ->
-                when(view) {
+            viewModel.onItemClicked.collectLatest { view ->
+                when (view) {
                     R.id.toolbar -> finish()
                 }
             }
