@@ -60,7 +60,7 @@ class HomeViewModel constructor(
         pageSourceRepository
     }.flow.cachedIn(viewModelScope)
 
-    val onItemClicked: MutableStateFlow<Int?> = MutableStateFlow(null);
+    val onItemClicked: MutableStateFlow<Int?> = MutableStateFlow(null)
 
     fun onClickFromXML(id: Int) {
         onItemClicked.value = id

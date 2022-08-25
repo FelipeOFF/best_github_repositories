@@ -10,7 +10,7 @@ inline fun <reified T> ResultWrapper<T>.asErrorServerOrNull(): ErrorWrapper.Serv
     (this as? ResultWrapper.Error)?.error as? ErrorWrapper.Server
 
 fun ErrorWrapper.asErrorThrowableOrNull(): Throwable? =
-    when(this) {
+    when (this) {
         is ErrorWrapper.Server -> cause
         is ErrorWrapper.NetworkException -> cause
         is ErrorWrapper.UnknownException -> cause

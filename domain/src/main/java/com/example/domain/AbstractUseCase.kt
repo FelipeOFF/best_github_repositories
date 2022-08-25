@@ -26,7 +26,7 @@ abstract class AbstractUseCase<in PARAMETER, out RESULT> constructor(
         emit(ResultWrapper.Loading)
         try {
             val result = withContext(IO) {
-                cache?.get(key, (forceLoad ?: false) || (lastedPARAMETER != null && value != lastedPARAMETER)) {
+                cache?.get(key, (forceLoad ?: false) || (lastedPARAMETER == null && value != lastedPARAMETER)) {
                     execute(value)
                 } ?: execute(value)
             }

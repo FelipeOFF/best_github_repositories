@@ -34,7 +34,7 @@ class GetAllPullRequestFromRepositoryTest {
             val useCase = GetAllPullRequestFromRepository(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
-                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns listOfPullRequests
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null
                     coEvery {
                         this@mockk.save(
                             Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING,

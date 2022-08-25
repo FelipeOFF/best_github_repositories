@@ -12,7 +12,7 @@ class RepositoryAdapter constructor(
 ) : PagingDataAdapter<Repository, RepositoryItemViewHolder>(RepositoryListDiffItemCallback) {
 
     override fun onBindViewHolder(holder: RepositoryItemViewHolder, position: Int) {
-        getItem(position)?.let {repositoryTipe ->
+        getItem(position)?.let { repositoryTipe ->
             holder.bind(repositoryTipe)
         }
     }
