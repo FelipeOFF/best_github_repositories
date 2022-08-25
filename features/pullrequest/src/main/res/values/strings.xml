@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="opened">%1$d opened</string>
+    <string name="bar"> / </string>
+    <string name="closed">%1$d closed</string>
+</resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="pullRequest"
+            type="com.example.model.pull.request.res.PullRequest"/>
+
+        <variable
+            name="pullRequestViewHolder"
+            type="com.example.pullrequest.adapter.PullRequestItemViewHolder"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?selectableItemBackground"
+        android:onClick="@{() -> pullRequestViewHolder.onClickItem(pullRequest)}"
+        android:padding="16dp">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtTitle"
+            style="@style/ItemTitleListTile"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{pullRequest.title}"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            tools:text="Titulo do pull request"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtBody"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            style="@style/ItemSubtitleListTile"
+            android:text="@{pullRequest.body}"
+            app:layout_constraintTop_toBottomOf="@id/txtTitle"
+            app:layout_constraintLeft_toLeftOf="@id/txtTitle"
+            app:layout_constraintRight_toRightOf="@id/txtTitle"
+            tools:text="Body do pull request Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate quam at nisi porta, in luctus sapien scelerisque. Sed non nibh at sapien"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminate="true"
+            app:layout_constraintTop_toTopOf="@id/userImage"
+            app:layout_constraintLeft_toLeftOf="@id/userImage"
+            app:layout_constraintRight_toRightOf="@id/userImage"
+            app:layout_constraintBottom_toBottomOf="@id/userImage"/>
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/userImage"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginEnd="6dp"
+            app:urlload="@{pullRequest.user.avatarUrl}"
+            app:imageErrorResource="@{@drawable/ic_round_account_circle_pullrequest}"
+            app:progressBar="@{progressBar}"
+            tools:src="@drawable/ic_round_account_circle_pullrequest"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintRight_toLeftOf="@id/txtUserFullName"
+            app:layout_constraintTop_toBottomOf="@id/txtBody"
+            app:layout_constraintLeft_toLeftOf="@id/txtBody"
+            tools:text="Body do pull request"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtNickOfAuthor"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ItemUserNickListTile"
+            android:text="@{pullRequest.user.login}"
+            tools:text="username"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintVertical_chainStyle="packed"
+            app:layout_constraintBottom_toTopOf="@id/txtUserFullName"
+            app:layout_constraintLeft_toLeftOf="@id/txtUserFullName"
+            app:layout_constraintTop_toTopOf="@id/userImage"
+            app:layout_constraintRight_toRightOf="@id/txtUserFullName"/>
+
+        <!-- TODO fazer get do nome no tipo repository.owner.url -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/txtUserFullName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/ItemFullUserNameListTile"
+            android:layout_marginStart="6dp"
+            android:text="@{pullRequest.user.login}"
+            tools:text="Nome Sobrenome"
+            app:layout_constraintBottom_toBottomOf="@id/userImage"
+            app:layout_constraintLeft_toRightOf="@id/userImage"
+            app:layout_constraintTop_toBottomOf="@id/txtNickOfAuthor"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

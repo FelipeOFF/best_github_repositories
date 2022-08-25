@@ -28,6 +28,29 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
 
+        <View
+            android:id="@+id/containerHeader"
+            android:layout_width="0dp"
+            android:layout_height="?android:actionBarSize"
+            android:background="@color/gray_FFF0F0F0"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/count"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/CountClosedAndOpen"
+            tools:text="16 opened / 800 closed"
+            android:layout_marginStart="16dp"
+            app:layout_constraintHorizontal_bias="0"
+            android:text="@{pullRequestViewModel.countOpenClosedString}"
+            app:layout_constraintTop_toTopOf="@id/containerHeader"
+            app:layout_constraintRight_toRightOf="@id/containerHeader"
+            app:layout_constraintLeft_toLeftOf="@id/containerHeader"
+            app:layout_constraintBottom_toBottomOf="@id/containerHeader"/>
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/errorMessage"
             style="@style/ScreenMessageTextView"
@@ -37,7 +60,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:layout_constraintTop_toBottomOf="@id/containerHeader"
             app:show="@{pullRequestViewModel.showError != null}"
             app:textInt="@{pullRequestViewModel.showError}" />
 
@@ -63,12 +86,13 @@
             android:layout_height="0dp"
             app:dividerDecoration="@{RecyclerView.VERTICAL}"
             app:show="@{pullRequestViewModel.showError == null}"
+            app:items="@{pullRequestViewModel.resultSuccess}"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/toolbar"
-            tools:listitem="@layout/item_repository"/>
+            app:layout_constraintTop_toBottomOf="@id/containerHeader"
+            tools:listitem="@layout/item_pullrequest"/>
 
         <com.google.android.material.progressindicator.CircularProgressIndicator
             android:id="@+id/circularProgressLoading"

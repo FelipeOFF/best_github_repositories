@@ -15,7 +15,7 @@ interface GitHubService {
         @Query("page") page: Int = 1,
     ): GitHubRepositories
 
-    @GET("/repos/{client}/elasticsearch/pulls")
+    @GET("/repos/{client}/{repository}/pulls")
     suspend fun getPullRequestsFromRepository(
         @Path("client") client: String,
         @Path("repository") repository: String,

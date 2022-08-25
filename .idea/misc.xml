@@ -10,9 +10,13 @@
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/drawable/bg_simple_ripple.xml" value="0.314" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/drawable/ic_branch_icon.xml" value="0.314" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/drawable/ic_branch_icon_color_e2a331.xml" value="0.314" />
+        <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/drawable/ic_round_account_circle_home.xml" value="0.305" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/layout/home_activity.xml" value="0.3109375" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/layout/item_loading_repository.xml" value="0.5489583333333333" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/home/src/main/res/layout/item_repository.xml" value="0.6180620884289746" />
+        <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/pullrequest/src/main/res/drawable/baseline_arrow_back_24.xml" value="0.305" />
+        <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/pullrequest/src/main/res/drawable/ic_round_account_circle_pullrequest.xml" value="0.305" />
+        <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/pullrequest/src/main/res/layout/item_pullrequest.xml" value="0.5223171889838556" />
         <entry key="..\:/Project/TestAndroid/BestGitHubRepositories/features/pullrequest/src/main/res/layout/pull_request_activity.xml" value="0.3098958333333333" />
       </map>
     </option>

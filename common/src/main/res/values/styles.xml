@@ -61,4 +61,8 @@
         <item name="android:textColor">@color/colorDetail</item>
     </style>
 
+    <style name="CountClosedAndOpen" parent="@style/TextAppearance.MaterialComponents.Body1">
+        <item name="android:textColor">@color/colorPrimary</item>
+    </style>
+
 </resources>

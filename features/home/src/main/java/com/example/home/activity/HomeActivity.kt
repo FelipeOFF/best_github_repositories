@@ -50,9 +50,8 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
         lifecycleScope.launch {
             viewModel.onItemClicked.collectLatest { view ->
                 when (view) {
-                    R.id.errorButtonTryAgain -> {
+                    R.id.errorButtonTryAgain ->
                         adapter.refresh()
-                    }
                 }
                 viewModel.onItemClicked.value = null
             }
