@@ -17,7 +17,7 @@ android {
         versionCode = Sdk.APP_VERSION_CODE
         versionName = Sdk.APP_VERSION_NAME
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = "com.example.bestgithubrepositories.runner.MockBestGithubRepositoryRunner"
     }
 
     compileOptions {
@@ -74,7 +74,13 @@ dependencies {
 
     testImplementation(TestDependencies.JUNIT)
 
+    androidTestImplementation(project(":common"))
+    androidTestImplementation(project(":util"))
+
     androidTestImplementation(TestDependencies.JUNIT_ANDROID_X)
+    androidTestImplementation(TestDependencies.TEST_RUNNER)
+    androidTestImplementation(TestDependencies.CORE_KTX_TEST)
     androidTestImplementation(TestDependencies.ESPRESSO_CORE)
     androidTestImplementation(TestDependencies.KOIN)
+    androidTestImplementation(TestDependencies.OKHTTP_MOCK_WEB_SERVER)
 }

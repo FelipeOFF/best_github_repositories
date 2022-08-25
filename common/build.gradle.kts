@@ -10,6 +10,8 @@ android {
     defaultConfig {
         minSdk = Sdk.MIN_SDK_VERSION
         targetSdk = Sdk.TARGET_SDK_VERSION
+
+        testInstrumentationRunner = "com.example.bestgithubrepositories.runner.MockBestGithubRepositoryRunner"
     }
 
     compileOptions {
@@ -60,4 +62,11 @@ dependencies {
 
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)
+
+    androidTestImplementation(TestDependencies.JUNIT_ANDROID_X)
+    androidTestImplementation(TestDependencies.TEST_RUNNER)
+    androidTestImplementation(TestDependencies.CORE_KTX_TEST)
+    androidTestImplementation(TestDependencies.ESPRESSO_CORE)
+    androidTestImplementation(TestDependencies.KOIN)
+    androidTestImplementation(TestDependencies.OKHTTP_MOCK_WEB_SERVER)
 }

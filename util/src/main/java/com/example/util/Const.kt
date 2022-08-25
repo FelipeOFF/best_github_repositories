@@ -11,6 +11,7 @@ object Const {
     }
 
     object Activity {
+        const val HOME_ACTIVITY = "com.example.home.activity.HomeActivity"
         const val PULL_REQUEST_ACTIVITY = "com.example.pullrequest.activity.PullRequestActivity"
     }
 

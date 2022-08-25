@@ -55,7 +55,7 @@ class HomeViewModel constructor(
     }.stateIn(viewModelScope, SharingStarted.Lazily, null)
 
     val pageFlow = Pager(
-        PagingConfig(pageSize = 30)
+        PagingConfig(pageSize = 5)
     ) {
         pageSourceRepository
     }.flow.cachedIn(viewModelScope)

@@ -39,10 +39,12 @@ object LibVersions {
 
     const val JUNIT_VERSION = "4.13.2"
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
+    const val ANDROIDX_TEST_RUNNER = "1.4.0"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
     const val MOCKK_VERSION = "1.12.1"
     const val ANDROIDX_CORE_TESTING = "2.1.0"
     const val TEST_RULES_VERSION = "1.3.0"
+    const val MOCK_WEB_SERVER_VERSION = "4.9.0"
 
     const val HAWK_VERSION = "2.0.1"
 
@@ -96,6 +98,8 @@ object TestDependencies {
     const val MOCKK = "io.mockk:mockk:${LibVersions.MOCKK_VERSION}"
 
     const val JUNIT_ANDROID_X = "androidx.test.ext:junit:${LibVersions.ANDROIDX_JUNIT_VERSION}"
+    const val TEST_RUNNER = "androidx.test:runner:${LibVersions.ANDROIDX_TEST_RUNNER}"
+    const val CORE_KTX_TEST = "androidx.test:core-ktx:${LibVersions.ANDROIDX_TEST_RUNNER}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${LibVersions.ESPRESSO_CORE_VERSION}"
 
     const val ANDROIDX_CORE_TESTING = "androidx.arch.core:core-testing:${LibVersions.ANDROIDX_CORE_TESTING}"
@@ -105,4 +109,6 @@ object TestDependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-test:${LibVersions.COROUTINES_TEST_VERSION}"
 
     const val KOIN = "io.insert-koin:koin-test:${LibVersions.KOIN_VERSION}"
+
+    const val OKHTTP_MOCK_WEB_SERVER = "com.squareup.okhttp3:mockwebserver:${LibVersions.MOCK_WEB_SERVER_VERSION}"
 }

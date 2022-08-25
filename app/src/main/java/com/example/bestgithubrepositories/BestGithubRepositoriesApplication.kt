@@ -29,8 +29,11 @@ open class BestGithubRepositoriesApplication : Application() {
         koinApplication
     }
 
+    open val allowOverride: Boolean = false
+
     protected val koinApplication: KoinApplication by lazy {
         startKoin {
+            allowOverride(allowOverride)
             androidContext(this@BestGithubRepositoriesApplication)
             androidFileProperties()
             koin.loadModules(gitHubModules)
