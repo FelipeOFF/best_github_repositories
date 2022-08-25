@@ -14,9 +14,10 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
+import timber.log.Timber
 
 class PullRequestViewModel constructor(
-    private val getPullRequestUseCase: GetAllPullRequestFromRepositoryUseCase
+    private val getPullRequestUseCase: GetAllPullRequestFromRepositoryUseCase,
 ) : ViewModel() {
 
     private val _result: MutableStateFlow<ResultWrapper<List<PullRequest>>> =
@@ -43,6 +44,7 @@ class PullRequestViewModel constructor(
     }
 
     fun searchRepositoryInformation(repository: Repository) {
+        Timber.d(repository.toString()) // TODO implementar
     }
 
     private fun showErrorByResultWrapper(result: ResultWrapper<List<PullRequest>>?): Int? =

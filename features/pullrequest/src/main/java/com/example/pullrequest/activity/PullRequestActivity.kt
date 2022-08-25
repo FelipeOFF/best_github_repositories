@@ -15,7 +15,8 @@ import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.core.module.Module
 
-class PullRequestActivity : BaseActivity<PullRequestActivityBinding, PullRequestViewModel>(R.layout.pull_request_activity) {
+class PullRequestActivity :
+    BaseActivity<PullRequestActivityBinding, PullRequestViewModel>(R.layout.pull_request_activity) {
 
     private val repository: Repository by lazy {
         checkNotNull(intent.extras?.getParcelable(Const.ActivityParameters.REPOSITORY_PARAMETER))
