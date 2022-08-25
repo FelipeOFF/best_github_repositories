@@ -1,5 +1,7 @@
 package com.example.pullrequest.activity
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import androidx.lifecycle.lifecycleScope
 import com.example.common.activity.BaseActivity
@@ -18,6 +20,7 @@ import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
 import org.koin.core.module.Module
+
 
 class PullRequestActivity :
     BaseActivity<PullRequestActivityBinding, PullRequestViewModel>(R.layout.pull_request_activity) {
@@ -79,6 +82,7 @@ class PullRequestActivity :
         listOf(pullRequestModule)
 
     private fun onClickItem(pullRequest: PullRequest) {
-
+        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(pullRequest.htmlUrl))
+        startActivity(browserIntent)
     }
 }
