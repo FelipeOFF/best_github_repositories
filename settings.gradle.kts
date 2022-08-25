@@ -28,4 +28,5 @@ include(
     ":domain",
     ":common",
     ":features:home",
+    ":features:pullrequest",
 )

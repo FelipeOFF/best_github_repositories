@@ -19,7 +19,7 @@ import org.junit.Test
 import retrofit2.HttpException
 import retrofit2.Response
 
-class GetAllPullRequestFromRepositoryTest {
+class GetAllPullRequestFromRepositoryUseCaseTest {
 
     private val repository: GitHubRepository = mockk()
 
@@ -31,7 +31,7 @@ class GetAllPullRequestFromRepositoryTest {
 
             val listOfPullRequests: List<PullRequest> = listOf(mockk())
 
-            val useCase = GetAllPullRequestFromRepository(
+            val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
                     coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null
@@ -66,7 +66,7 @@ class GetAllPullRequestFromRepositoryTest {
             val listOfPullRequests: List<PullRequest> = listOf(mockk())
             val listOfPullRequestsFromCache: List<PullRequest> = listOf(mockk())
 
-            val useCase = GetAllPullRequestFromRepository(
+            val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
                     coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns listOfPullRequestsFromCache
@@ -103,7 +103,7 @@ class GetAllPullRequestFromRepositoryTest {
             val code = 401
             val exception = HttpException(Response.error<List<PullRequest>>(code, value.toResponseBody()))
 
-            val useCase = GetAllPullRequestFromRepository(
+            val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
                     coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null

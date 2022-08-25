@@ -9,7 +9,7 @@ import com.example.model.pull.request.res.PullRequest
 import com.example.repository.GitHubRepository
 import com.example.util.Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING
 
-class GetAllPullRequestFromRepository constructor(
+class GetAllPullRequestFromRepositoryUseCase constructor(
     private val repository: GitHubRepository,
     cacheStrategy: CacheStore<List<PullRequest>> = HawkCacheStore()
 ) : AbstractUseCase<GetPullRequestReq, List<PullRequest>>(

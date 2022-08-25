@@ -1,10 +1,10 @@
 package com.example.di.domain
 
-import com.example.domain.usecase.GetAllPullRequestFromRepository
-import com.example.domain.usecase.GetAllRepositories
+import com.example.domain.usecase.GetAllPullRequestFromRepositoryUseCase
+import com.example.domain.usecase.GetAllRepositoriesUseCase
 import org.koin.dsl.module
 
 val domainModule = module {
-    single { GetAllPullRequestFromRepository(get()) }
-    single { GetAllRepositories(get()) }
+    single { GetAllPullRequestFromRepositoryUseCase(get()) }
+    single { GetAllRepositoriesUseCase(get()) }
 }

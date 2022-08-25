@@ -9,7 +9,7 @@ import androidx.paging.PagingState
 import androidx.paging.cachedIn
 import com.example.domain.ErrorWrapper
 import com.example.domain.ResultWrapper
-import com.example.domain.usecase.GetAllRepositories
+import com.example.domain.usecase.GetAllRepositoriesUseCase
 import com.example.domain.util.asErrorServerOrNull
 import com.example.domain.util.asErrorThrowableOrNull
 import com.example.domain.util.asSuccessValueOrNull
@@ -25,7 +25,7 @@ import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.stateIn
 
 class HomeViewModel constructor(
-    private val getAllRepositories: GetAllRepositories,
+    private val getAllRepositoriesUseCase: GetAllRepositoriesUseCase,
 ) : ViewModel() {
 
     private val _page: MutableStateFlow<Int> = MutableStateFlow(1)
@@ -91,18 +91,17 @@ class HomeViewModel constructor(
         get() = object : PagingSource<Int, Repository>() {
             override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Repository> {
                 _page.value = params.key ?: _page.value
-                _result.emitAll(getAllRepositories(params.key ?: _page.value))
-                if (_resultSuccess.value?.incompleteResults == false) {
-                    ++_page.value
-                }
-                return if (showError.value != null) {
+                _result.emitAll(getAllRepositoriesUseCase(params.key ?: _page.value))
+                return if (_resultSuccess.value?.incompleteResults == false) {
+                    LoadResult.Invalid()
+                } else if (showError.value != null) {
                     LoadResult.Error(_resultError.value?.asErrorThrowableOrNull() ?: Exception())
                 } else {
                     val list: List<Repository> = listOfRepositories.value
                     LoadResult.Page(
                         data = list,
                         prevKey = null,
-                        nextKey = _page.value
+                        nextKey = ++_page.value
                     )
                 }
             }

@@ -24,7 +24,7 @@ class GetAllRepositoriesTest {
     fun `on execute UseCase GetAllRepositories giving page then return a list of repository`(): Unit = runBlocking {
         val listOfRepository: GitHubRepositories = mockk()
 
-        val useCase = GetAllRepositories(
+        val useCase = GetAllRepositoriesUseCase(
             repository,
         )
 
@@ -47,7 +47,7 @@ class GetAllRepositoriesTest {
         val code = 401
         val exception = HttpException(Response.error<GitHubRepositories>(code, value.toResponseBody()))
 
-        val useCase = GetAllRepositories(
+        val useCase = GetAllRepositoriesUseCase(
             repository,
         )
 

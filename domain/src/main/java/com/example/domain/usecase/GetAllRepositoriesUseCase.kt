@@ -4,7 +4,7 @@ import com.example.domain.AbstractUseCase
 import com.example.model.repository.res.GitHubRepositories
 import com.example.repository.GitHubRepository
 
-class GetAllRepositories constructor(
+class GetAllRepositoriesUseCase constructor(
     private val repository: GitHubRepository,
 ) : AbstractUseCase<Int?, GitHubRepositories>() {
     override suspend fun execute(param: Int?): GitHubRepositories =

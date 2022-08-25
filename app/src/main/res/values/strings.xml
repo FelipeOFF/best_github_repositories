@@ -3,4 +3,5 @@
 
     <!-- Dynamic modules -->
     <string name="title_home">Home</string>
+    <string name="title_pullrequest">Module Title</string>
 </resources>

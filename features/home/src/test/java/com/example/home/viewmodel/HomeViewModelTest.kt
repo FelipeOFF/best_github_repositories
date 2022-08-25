@@ -3,7 +3,7 @@ package com.example.home.viewmodel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingSource
 import com.example.domain.ResultWrapper
-import com.example.domain.usecase.GetAllRepositories
+import com.example.domain.usecase.GetAllRepositoriesUseCase
 import com.example.model.repository.res.GitHubRepositories
 import com.example.model.repository.res.Repository
 import io.mockk.every
@@ -11,12 +11,8 @@ import io.mockk.mockk
 import io.mockk.spyk
 import io.mockk.verify
 import junit.framework.TestCase.assertEquals
-import junit.framework.TestCase.assertFalse
 import junit.framework.TestCase.assertNotNull
-import junit.framework.TestCase.assertNull
-import junit.framework.TestCase.assertTrue
 import kotlinx.coroutines.ExperimentalCoroutinesApi
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.launch
@@ -32,13 +28,13 @@ class HomeViewModelTest {
     @JvmField
     val instantTaskExecutorRule = MainCoroutineRule()
 
-    private val getAllRepositories: GetAllRepositories = mockk()
+    private val getAllRepositoriesUseCase: GetAllRepositoriesUseCase = mockk()
 
     @Test
     fun `on start home and get all repositories success`(): Unit = runTest {
         val homeViewModel: HomeViewModel = spyk(
             HomeViewModel(
-                getAllRepositories = getAllRepositories
+                getAllRepositoriesUseCase = getAllRepositoriesUseCase
             )
         )
 
@@ -49,7 +45,7 @@ class HomeViewModelTest {
             every { this@mockk.items } returns listOfRepositories
         }
 
-        every { getAllRepositories(1) } returns flowOf(ResultWrapper.Success(gitRepositoriesMock))
+        every { getAllRepositoriesUseCase(1) } returns flowOf(ResultWrapper.Success(gitRepositoriesMock))
 
         homeViewModel.pageSourceRepository.load(PagingSource.LoadParams.Refresh(1, 30, false))
 
@@ -62,7 +58,7 @@ class HomeViewModelTest {
         assertNotNull(list[1])
         assertEquals(list[1], listOfRepositories)
 
-        verify(exactly = 1) { getAllRepositories(1) }
+        verify(exactly = 1) { getAllRepositoriesUseCase(1) }
 
         collectJob.cancel()
     }
