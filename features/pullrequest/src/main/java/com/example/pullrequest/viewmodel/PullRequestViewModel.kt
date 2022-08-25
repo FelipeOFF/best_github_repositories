@@ -44,7 +44,7 @@ class PullRequestViewModel constructor(
     val onItemClicked: MutableStateFlow<Int?> = MutableStateFlow(null)
 
     val countOpenClosed: StateFlow<Pair<Int, Int>> = resultSuccess.map { list ->
-        list.count { it.state == StateEnum.open } to list.count { it.state == StateEnum.closed }
+        list.count { it.state == StateEnum.OPEN } to list.count { it.state == StateEnum.CLOSED }
     }.stateIn(viewModelScope, SharingStarted.Lazily, 0 to 0)
 
     val countOpenClosedString: MutableStateFlow<SpannableString?> = MutableStateFlow(null)
