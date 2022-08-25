@@ -28,16 +28,17 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
         runBlocking {
             val client = "elastic"
             val repositoryName = "elasticsearch"
+            val mockGetPullRequestReq = GetPullRequestReq(client, repositoryName)
 
             val listOfPullRequests: List<PullRequest> = listOf(mockk())
 
             val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
-                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING + mockGetPullRequestReq.hashCode()) } returns null
                     coEvery {
                         this@mockk.save(
-                            Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING,
+                            Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING + mockGetPullRequestReq.hashCode(),
                             listOfPullRequests
                         )
                     } returns Unit
@@ -46,7 +47,7 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
 
             coEvery { repository.getAllPullRequestFromRepository(client, repositoryName) } returns listOfPullRequests
 
-            val result = useCase(GetPullRequestReq(client, repositoryName)).toList()
+            val result = useCase(mockGetPullRequestReq).toList()
 
             assert(result[0] is ResultWrapper.Loading)
             assert(result[1] is ResultWrapper.Success)
@@ -62,6 +63,7 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
         runBlocking {
             val client = "elastic"
             val repositoryName = "elasticsearch"
+            val mockGetPullRequestReq = GetPullRequestReq(client, repositoryName)
 
             val listOfPullRequests: List<PullRequest> = listOf(mockk())
             val listOfPullRequestsFromCache: List<PullRequest> = listOf(mockk())
@@ -69,10 +71,10 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
             val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
-                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns listOfPullRequestsFromCache
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING + mockGetPullRequestReq.hashCode()) } returns listOfPullRequestsFromCache
                     coEvery {
                         this@mockk.save(
-                            Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING,
+                            Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING + mockGetPullRequestReq.hashCode(),
                             listOfPullRequests
                         )
                     } returns Unit
@@ -82,7 +84,7 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
             coEvery { repository.getAllPullRequestFromRepository(client, repositoryName) } returns listOfPullRequests
 
             useCase(GetPullRequestReq(client, repositoryName)).toList() // Only for put param in stack
-            val result = useCase(GetPullRequestReq(client, repositoryName)).toList()
+            val result = useCase(mockGetPullRequestReq).toList()
 
             assert(result[0] is ResultWrapper.Loading)
             assert(result[1] is ResultWrapper.Success)
@@ -90,7 +92,7 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
 
             assertEquals(result[1].asSuccessValueOrNull()?.first(), listOfPullRequestsFromCache.first())
 
-            coVerify(exactly = 1) { repository.getAllPullRequestFromRepository(client, repositoryName) }
+            coVerify(exactly = 0) { repository.getAllPullRequestFromRepository(client, repositoryName) }
         }
 
     @Test
@@ -98,6 +100,7 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
         runBlocking {
             val client = "elastic"
             val repositoryName = "elasticsearch"
+            val mockGetPullRequestReq = GetPullRequestReq(client, repositoryName)
 
             val value = "Teste"
             val code = 401
@@ -106,13 +109,13 @@ class GetAllPullRequestFromRepositoryUseCaseTest {
             val useCase = GetAllPullRequestFromRepositoryUseCase(
                 repository,
                 cacheStrategy = mockk<HawkCacheStore<List<PullRequest>>> {
-                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING) } returns null
+                    coEvery { this@mockk.get(Const.CacheKey.GET_ALL_PULL_REQUESTS_CACHING + mockGetPullRequestReq.hashCode()) } returns null
                 }
             )
 
             coEvery { repository.getAllPullRequestFromRepository(client, repositoryName) } throws exception
 
-            val result = useCase(GetPullRequestReq(client, repositoryName)).toList()
+            val result = useCase(mockGetPullRequestReq).toList()
 
             assert(result[0] is ResultWrapper.Loading)
             assert(result[1] is ResultWrapper.Error)

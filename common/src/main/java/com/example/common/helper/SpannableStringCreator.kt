@@ -24,13 +24,15 @@ class SpannableStringCreator {
         length += newText.length
     }
 
-    inline fun applyIf(predicate: () -> Boolean, action: SpannableStringCreator.() -> SpannableStringCreator) = if (predicate()) action() else this
+    inline fun applyIf(predicate: () -> Boolean, action: SpannableStringCreator.() -> SpannableStringCreator) =
+        if (predicate()) action() else this
 
+    @Suppress("SpreadOperator")
     fun toSpannableString() = SpannableString(concat(*parts.toTypedArray())).apply {
         spanMap.forEach {
             val range = it.key
             it.value.forEach { span ->
-                setSpan(span, range.start, range.endInclusive, SPAN_EXCLUSIVE_EXCLUSIVE)
+                setSpan(span, range.first, range.last, SPAN_EXCLUSIVE_EXCLUSIVE)
             }
         }
     }
