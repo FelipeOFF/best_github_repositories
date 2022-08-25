@@ -73,7 +73,7 @@
             android:layout_height="wrap_content"
             android:visibility="gone"
             android:indeterminate="true"
-            app:show="@{homeViewModel.showLoading}"
+            app:show="@{homeViewModel.listOfRepositories.size == 0 &amp;&amp; homeViewModel.showLoading}"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"

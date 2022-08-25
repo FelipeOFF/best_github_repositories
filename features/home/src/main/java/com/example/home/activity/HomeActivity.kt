@@ -3,6 +3,7 @@ package com.example.home.activity
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.common.activity.BaseActivity
+import com.example.common.adapter.PaginationListener
 import com.example.common.helper.setItems
 import com.example.home.BR
 import com.example.home.R
@@ -41,9 +42,25 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
     }
 
     private fun setupView() {
+        val linearLayoutManager = LinearLayoutManager(this)
         binding?.recycler?.adapter = adapter
-        binding?.recycler?.layoutManager = LinearLayoutManager(this)
+        binding?.recycler?.layoutManager = linearLayoutManager
         binding?.recycler?.setItems(viewModel.listOfRepositories.value)
+
+        binding?.recycler?.addOnScrollListener(object : PaginationListener(linearLayoutManager) {
+            override fun pageSize(): Int =
+                viewModel.listOfRepositories.value.size
+
+            override var isLastPage: Boolean = false
+                get() = viewModel.isLastPage.value
+
+            override var isLoading: Boolean = false
+                get() = viewModel.showLoading.value
+
+            override fun loadMoreItems() {
+                viewModel.page.value = ++viewModel.page.value
+            }
+        })
     }
 
     private fun adapterListener(repository: RepositoryItemTypeAdapter) {
