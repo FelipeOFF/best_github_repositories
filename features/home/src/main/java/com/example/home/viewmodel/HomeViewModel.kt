@@ -71,9 +71,9 @@ class HomeViewModel constructor(
             is ResultWrapper.Success -> null
             is ResultWrapper.Error -> {
                 when (result.error) {
-                    is ErrorWrapper.NetworkException -> R.string.error_connection
-                    is ErrorWrapper.Server -> R.string.error
-                    is ErrorWrapper.UnknownException -> R.string.error
+                    is ErrorWrapper.NetworkException -> com.example.common.R.string.error_connection
+                    is ErrorWrapper.Server -> com.example.common.R.string.error
+                    is ErrorWrapper.UnknownException -> com.example.common.R.string.error
                 }
             }
 
