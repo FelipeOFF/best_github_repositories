@@ -6,12 +6,14 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
+import com.example.common.navigation.Navigation
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import org.koin.core.context.loadKoinModules
 import org.koin.core.module.Module
 import kotlin.coroutines.CoroutineContext
+import org.koin.android.ext.android.inject
 
 abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel>(
     @LayoutRes val layout: Int
@@ -28,6 +30,8 @@ abstract class BaseActivity<VB : ViewDataBinding, VM : ViewModel>(
     val binding: VB? by lazy {
         setupBinding()
     }
+
+    val navigation: Navigation by inject()
 
     override fun onResume() {
         super.onResume()

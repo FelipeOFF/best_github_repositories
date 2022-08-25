@@ -45,6 +45,7 @@ dependencies {
     implementation(Dependencies.RETROFIT)
     implementation(Dependencies.RETROFIT_GSON_CONVERTER)
     implementation(Dependencies.GSON)
+    implementation(Dependencies.TIMBER)
 
     testImplementation(TestDependencies.JUNIT)
 }

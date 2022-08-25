@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
         <variable
@@ -10,6 +11,71 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:actionBarSize"
+            style="@style/ToolbarBlackStyle"
+            app:navigationIcon="@drawable/baseline_menu_24"
+            app:title="@{pullRequestViewModel.repositoryName}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/errorMessage"
+            style="@style/ScreenMessageTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            app:show="@{homeViewModel.showError != null}"
+            app:textInt="@{homeViewModel.showError}" />
+
+        <Button
+            android:id="@+id/errorButtonTryAgain"
+            style="@style/FlatButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:text="@string/try_again"
+            android:visibility="gone"
+            android:onClick="@{(v) -> homeViewModel.onClickFromXML(v.id)}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/errorMessage"
+            app:layout_constraintVertical_bias="0"
+            app:show="@{homeViewModel.showError != null}" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:dividerDecoration="@{RecyclerView.VERTICAL}"
+            app:show="@{homeViewModel.showError == null}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"
+            tools:listitem="@layout/item_repository"/>
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circularProgressLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:indeterminate="true"
+            app:show="@{homeViewModel.listOfRepositories.size == 0 &amp;&amp; homeViewModel.showLoading}"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

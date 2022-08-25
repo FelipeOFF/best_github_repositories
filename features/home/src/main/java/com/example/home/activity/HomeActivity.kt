@@ -10,6 +10,7 @@ import com.example.home.databinding.HomeActivityBinding
 import com.example.home.di.homeModule
 import com.example.home.viewmodel.HomeViewModel
 import com.example.model.repository.res.Repository
+import com.example.util.Const
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import org.koin.androidx.viewmodel.ext.android.stateViewModel
@@ -64,6 +65,8 @@ class HomeActivity : BaseActivity<HomeActivityBinding, HomeViewModel>(R.layout.h
     }
 
     private fun adapterListener(repository: Repository) {
-        Timber.d(repository.toString()) // TODO tratar click
+        navigation.navigateToPullRequestActivity(this, Bundle().apply {
+            putParcelable(Const.ActivityParameters.REPOSITORY_PARAMETER, repository)
+        })
     }
 }

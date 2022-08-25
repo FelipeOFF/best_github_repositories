@@ -48,4 +48,5 @@ dependencies {
     implementation(project(":repository"))
     implementation(project(":domain"))
     implementation(project(":cache"))
+    implementation(project(":common"))
 }
