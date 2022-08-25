@@ -16,7 +16,6 @@ class PullRequestItemViewHolder(
         viewDataBinding.executePendingBindings()
     }
 
-
     fun onClickItem(item: PullRequest) {
         listener.invoke(item)
     }
