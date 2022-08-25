@@ -6,6 +6,8 @@ import kotlinx.parcelize.Parcelize
 
 @Parcelize
 data class Owner(
+    @SerializedName("avatar_url")
+    val avatarUrl: String?,
     @SerializedName("login")
     val login: String?, // used
 ) : Parcelable {
@@ -15,12 +17,15 @@ data class Owner(
 
         other as Owner
 
+        if (avatarUrl != other.avatarUrl) return false
         if (login != other.login) return false
 
         return true
     }
 
     override fun hashCode(): Int {
-        return login?.hashCode() ?: 0
+        var result = avatarUrl?.hashCode() ?: 0
+        result = 31 * result + (login?.hashCode() ?: 0)
+        return result
     }
 }
