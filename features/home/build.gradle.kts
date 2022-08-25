@@ -59,4 +59,7 @@ dependencies {
 
     testImplementation(TestDependencies.JUNIT)
     testImplementation(TestDependencies.MOCKK)
+    testImplementation(TestDependencies.COROUTINES_TEST)
+    testImplementation(TestDependencies.ANDROIDX_CORE_TESTING)
+    testImplementation(TestDependencies.TEST_RULES)
 }

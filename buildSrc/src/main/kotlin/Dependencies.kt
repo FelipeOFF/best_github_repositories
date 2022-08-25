@@ -26,6 +26,7 @@ object LibVersions {
 
     const val COROUTINES_VERSION = "1.3.9"
     const val COROUTINES_ANDROID_VERSION = "1.3.9"
+    const val COROUTINES_TEST_VERSION = "1.3.9"
 
     const val OK_HTTP_VERSION = "4.9.0"
     const val RETROFIT_VERSION = "2.9.0"
@@ -40,6 +41,8 @@ object LibVersions {
     const val ANDROIDX_JUNIT_VERSION = "1.1.3"
     const val ESPRESSO_CORE_VERSION = "3.4.0"
     const val MOCKK_VERSION = "1.12.1"
+    const val ANDROIDX_CORE_TESTING = "2.1.0"
+    const val TEST_RULES_VERSION = "1.3.0"
 
     const val HAWK_VERSION = "2.0.1"
 
@@ -94,6 +97,12 @@ object TestDependencies {
 
     const val JUNIT_ANDROID_X = "androidx.test.ext:junit:${LibVersions.ANDROIDX_JUNIT_VERSION}"
     const val ESPRESSO_CORE = "androidx.test.espresso:espresso-core:${LibVersions.ESPRESSO_CORE_VERSION}"
+
+    const val ANDROIDX_CORE_TESTING = "androidx.arch.core:core-testing:${LibVersions.ANDROIDX_CORE_TESTING}"
+    const val TEST_RULES = "androidx.test:rules:${LibVersions.TEST_RULES_VERSION}"
+
+    const val COROUTINES_TEST =
+        "org.jetbrains.kotlinx:kotlinx-coroutines-test:${LibVersions.COROUTINES_TEST_VERSION}"
 
     const val KOIN = "io.insert-koin:koin-test:${LibVersions.KOIN_VERSION}"
 }
