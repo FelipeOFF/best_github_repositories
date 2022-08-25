@@ -48,6 +48,7 @@ dependencies {
     implementation(Dependencies.MATERIAL)
     implementation(Dependencies.LIFECYCLE)
     implementation(Dependencies.LIFECYCLE_KTX)
+    implementation(Dependencies.PAGING)
 
     implementation(Dependencies.GLIDE)
 

@@ -22,6 +22,7 @@ object LibVersions {
     const val APP_COMPAT_VERSION = "1.5.0"
     const val MATERIAL_VERSION = "1.6.1"
     const val LIFECYCLE_VERSION = "2.5.1"
+    const val PAGING_VERSION = "3.1.1"
 
     const val COROUTINES_VERSION = "1.3.9"
     const val COROUTINES_ANDROID_VERSION = "1.3.9"
@@ -57,6 +58,7 @@ object Dependencies {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:${LibVersions.COROUTINES_ANDROID_VERSION}"
     const val LIFECYCLE = "androidx.lifecycle:lifecycle-viewmodel:${LibVersions.LIFECYCLE_VERSION}"
     const val LIFECYCLE_KTX = "androidx.lifecycle:lifecycle-viewmodel-ktx:${LibVersions.LIFECYCLE_VERSION}"
+    const val PAGING = "androidx.paging:paging-runtime:${LibVersions.PAGING_VERSION}"
 
     // HTTP
 

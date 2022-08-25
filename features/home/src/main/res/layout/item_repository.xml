@@ -91,7 +91,7 @@
             android:layout_height="wrap_content"
             style="@style/ItemIconTextListTile"
             tools:text="98"
-            android:text="@{repository.forksCount.toString()}"
+            android:text="@{repository.stargazersCount.toString()}"
             app:layout_constraintRight_toRightOf="@id/repositoryDescription"
             app:layout_constraintTop_toTopOf="@id/imgIconBranchs"
             app:layout_constraintBottom_toBottomOf="@id/imgIconBranchs"

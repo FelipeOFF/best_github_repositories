@@ -8,3 +8,10 @@ inline fun <reified T> ResultWrapper<T>.asSuccessValueOrNull(): T? =
 
 inline fun <reified T> ResultWrapper<T>.asErrorServerOrNull(): ErrorWrapper.Server? =
     (this as? ResultWrapper.Error)?.error as? ErrorWrapper.Server
+
+fun ErrorWrapper.asErrorThrowableOrNull(): Throwable? =
+    when(this) {
+        is ErrorWrapper.Server -> cause
+        is ErrorWrapper.NetworkException -> cause
+        is ErrorWrapper.UnknownException -> cause
+    }

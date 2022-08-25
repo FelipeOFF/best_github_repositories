@@ -49,6 +49,7 @@ dependencies {
     implementation(Dependencies.LIFECYCLE)
     implementation(Dependencies.LIFECYCLE_KTX)
     implementation(Dependencies.TIMBER)
+    implementation(Dependencies.PAGING)
 
     implementation(project(":app"))
     implementation(project(":domain"))

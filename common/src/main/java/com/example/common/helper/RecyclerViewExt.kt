@@ -1,17 +1,16 @@
 package com.example.common.helper
 
 import androidx.databinding.BindingAdapter
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.lifecycleScope
+import androidx.paging.PagingData
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.common.adapter.AbstractAdapterItems
-
-@BindingAdapter("items")
-fun RecyclerView.setItems(list: List<Any>?) {
-    list?.let { listLet ->
-        (adapter as? AbstractAdapterItems)?.replaceItems(listLet)
-    }
-}
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 
 @BindingAdapter("dividerDecoration")
 fun RecyclerView.setDividerDecoration(orientation: Int) {
