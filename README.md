@@ -41,12 +41,6 @@ There are currently the following workflows available:
 
 ------------------------------------------------------------------------------------------------------------------------
 
-## Sobre você
-**Nome**: Felipe Oliveira Ferreira
+This is based in a repository Android Template:
 
-**Sede(s) que gostaria de trabalhar (BH, Curitiba, Recife, SP)**: SP
-
-**Gostaria de receber feedback sobre seu desafio? (sim/não)**: Sim
-
-## Alguma consideração sobre o seu projeto?
-Foi bem legal o desafio 👍
+https://github.com/cortinico/kotlin-android-template
